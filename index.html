@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Adaptive Image Quality Assessment via Teaching Large Multimodal Model to Compare</title>
+  <link rel="icon" type="image/x-icon" href="static/images/logo.pic.jpg">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+  <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.12.0/gradio.js"></script>
+<style>
+  .darkblue {
+    color: darkblue;
+  }
+  pre {
+    white-space: pre-wrap; /* Since CSS might be used, ensure that white-space is preserved */
+  }
+</style>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Towards Open-ended Visual Quality Comparison</h1>
+            <div class="is-size-5 publication-authors">
+<!-- Paper authors -->
+<span class="author-block">
+  <a href="https://github.com/h4nwei" target="_blank">Hanwei Zhu</a><sup>1*</sup>,
+</span>
+<span class="author-block">
+  <a href="https://teowu.github.io" target="_blank">Haoning Wu</a><sup>2*</sup>,
+</span>
+<span class="author-block">
+  <a href="https://compare2score.github.com" target="_blank">Yixuan Li</a><sup>1</sup>,
+</span>
+<span class="author-block">
+  <a href="https://github.com/zzc-1998" target="_blank">Zicheng Zhang</a><sup>3</sup>,
+</span>
+<span class="author-block">
+  <a href="https://scholar.google.com/citations?hl=en&user=w_WL27oAAAAJ&view_op=list_works" target="_blank">Baoliang Chen</a><sup>1</sup>,
+</span>
+<span class="author-block">
+  <a href="https://scholar.google.com/citations?hl=en&user=IhyTEDkAAAAJ" target="_blank">Lingyu Zhu</a><sup>1</sup>,
+</span>
+<span class="author-block">
+  <a href="http://sim.jxufe.cn/JDMKL/ymfang_EN.html/" target="_blank">Yuming Fang</a><sup>4</sup>,
+</span>
+<span class="author-block">
+  <a href="https://ee.sjtu.edu.cn/en/FacultyDetail.aspx?id=24&infoid=153&flag=153" target="_blank">Guangtao Zhai</a><sup>3</sup>,
+</span>
+<span class="author-block">
+  <a href="https://personal.ntu.edu.sg/wslin/Home.html" target="_blank">Weisi Lin</a><sup>2</sup>,
+</span>
+<span class="author-block">
+  <a href="https://www.cs.cityu.edu.hk/~shiqwang/" target="_blank">Shiqi Wang</a><sup>1</sup>,
+</span>
+</div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>City University of Hong Kong</span>
+                    <span class="author-block"><sup>2</sup>Nanyang Technological University</span>
+                    <span class="author-block"><sup>3</sup>Shanghai Jiao Tong University</span>
+                    <span class="author-block"><sup>4</sup>Jiangxi University of Finance and Economics</span>
+                    <span class="eql-cntrb"><small><br><sup>*</sup>Equal Contribution.</small></span>
+                    <!-- <span class="eql-cntrb"><small><br><sup>#</sup>Equal Contribution.</small></span> -->
+                  </div>
+
+                  <div class="column has-text-centered">
+                        
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/abs/2405.19298" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>ArXiv</span>
+                      </a>
+                    </span>
+
+                    <!-- huggingface -->
+                    <span class="link-block">
+                      <a href="https://huggingface.co/q-future/Compare2Score" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-smile"></i>
+                      </span>
+                      <span>Compare2Score (Coming soon)</span>
+                    </a>
+                  </span>
+                      
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/Q-Future/Compare2Score" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (Coming soon)</span>
+                  </a>
+                </span>
+
+                <!-- huggingface -->
+                    <!-- <span class="link-block">
+                      <a href="https://huggingface.co/spaces/q-future/Compare2Score" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-smile"></i>
+                      </span>
+                      <span>HF Demo</span>
+                    </a>
+                  </span> -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="section"  style="background-color:#efeff081">
+    <div class="container is-max-desktop" id="gradio">
+      <gradio-app src="https://q-future-compare2score.hf.space/"></gradio-app>
+    </div>
+</section> -->
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            While recent advancements in large multimodal models (LMMs) have significantly improved their abilities in image quality assessment (IQA) relying on absolute quality rating, how to transfer reliable relative quality comparison outputs to continuous perceptual quality scores remains largely unexplored. To address this gap, we introduce <strong>Compare2Score</strong>—an all-around LMM-based no-reference IQA~(NR-IQA) model, which is capable of producing qualitatively comparative responses and effectively translating these discrete comparative levels into a continuous quality score. Specifically, during training, we present to generate scaled-up comparative instructions by comparing images from the same IQA dataset, allowing for more flexible integration of diverse IQA datasets. Utilizing the established large-scale training corpus, we develop a human-like visual quality comparator. During inference, moving beyond binary choices, we propose a soft comparison method that calculates the likelihood of the test image being preferred over multiple predefined anchor images. The quality score is further optimized by maximum a posteriori estimation with the resulting probability matrix. Extensive experiments on nine IQA datasets validate that the <strong>Compare2Score</strong> effectively bridges text-defined comparative levels during training with converted single image quality score for inference, surpassing state-of-the-art IQA models across diverse scenarios. Moreover, we verify that the probability-matrix-based inference conversion not only improves the rating accuracy of <strong>Compare2Score</strong> but also zero-shot general-purpose LMMs, suggesting its intrinsic effectiveness. 
+          </p>
+        </div>
+        <!-- <img src="static/images/teaser.png" , width="800" /> -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+
+  
+<!-- Teaser -->
+  <section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-three-fifths">
+          <h5 class="title">Motivation</h5>
+          <div class="content has-text-justified">
+            <p>
+              Illustrations of the motivation of this work. <strong>(a)</strong> Images with identical rescaled MOS from various IQA datasets exhibit significant variations in perceptual quality. <strong>(b)</strong> Images that cluster at the same rating level from different IQA datasets display mismatches due to differing subjective testing methodologies. <strong>(c)</strong>  By comparing MOSs within the same dataset, it facilitates the flexible combination of multiple IQA datasets.
+            </p>
+          </div>
+          <img src="static/images/teaser.png" , width="1400" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser -->
+  <section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-three-fifths">
+          <h5 class="title">A repurposed training dataset.</strong></h5>
+          <div class="content has-text-justified">
+            <p>
+              We present to generate scaled-up comparative instructions by comparing MOSs of images within each IQA dataset, 
+              which allows for more flexible integration of diverse IQA datasets. Specifically, the approach simulates subjective 
+              testing by posing the question, ``Compared with the first image, how is the quality of the second image?”. Responses are then generated based on the MOS comparisons of the image pairs. 
+              Using the empirical rule, we categorize the image pairs into five distinct comparative levels: inferior, 
+              worse, similar, better, superior. This method produces a comprehensive training 
+              dataset that enables the LMM to effectively handle various distortion scenarios, resulting in a human-like 
+              visual quality comparator.
+            </p>
+          </div>
+          <img src="static/images/framework.png" , width="1400" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser -->
+  <section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-three-fifths">
+          <h5 class="title">An inference conversion strategy</h5>
+          <div class="content has-text-justified">
+            <p>
+              We develop an adaptive soft comparison scheme that efficiently translates discrete comparative levels into continuous
+               quality scores. Unlike traditional two-alternative forced choice (2AFC) methods, our approach calculates the 
+               likelihood that an input image is preferred over multiple anchor images. This probability is derived from 
+               a weighted summation of the softmax-transformed log probabilities across five comparative levels. Subsequently, 
+               the quality score of the input image is calculated through maximum a posteriori (MAP) estimation based on the 
+               resulting probability matrix.
+            </p>
+          </div>
+          <img src="static/images/dataset.png" , width="900" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser -->
+  <!-- <section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-three-fifths">
+          <h5 class="title">A state-of-the-art framework</h5>
+          <div class="content has-text-justified">
+            <p>
+              We conduct extensive experiments to validate the effectiveness of teaching the relative quality ranking knowledge to LMM.
+              The proposed model, namely Compare2Score, consistently outperforms state-of-the-art NR-IQA models on both synthetic and 
+              realistic distortions and shows enhanced generalization capability across different cross-distortion scenarios. 
+              Furthermore, we demonstrate that the probability matrix-based inference conversion significantly enhances the rating accuracy 
+              of Compare2Score and extends these improvements to zero-shot general-purpose LMMs. 
+            </p>
+          </div>
+          <img src="static/images/micbench.png" , width="900" />
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+        <div class="columns is-centered has-text-centered">
+        <div class="column is-three-fifths">
+      <h5 class="title">Experiments</h5>
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/MainResult.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          Performance comparison in terms of median SRCC and PLCC on six IQA datasets under the intra-dataset setup. 
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/CrossDataset.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          SRCC results on the three IQA datasets under the cross-dataset setup.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/SoftComparison.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+          SRCC results of probability matrix and count matrix on four IQA datasets. Prob. stands for probability.
+       </h2>
+     </div>
+     <div class="item">
+      <!-- Your image here -->
+      <img src="static/images/Accuracy.png" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+        Performance comparison in terms of prediction accuracy on six IQA datasets.
+      </h2>
+    </div>
+  </div>
+    </div>
+      </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@misc{zhu2024adaptive,
+      title={Adaptive Image Quality Assessment via Teaching Large Multimodal Model to Compare}, 
+      author={Hanwei Zhu and Haoning Wu and Yixuan Li and Zicheng Zhang and Baoliang Chen and Lingyu Zhu and Yuming Fang and Guangtao Zhai and Weisi Lin and Shiqi Wang},
+      year={2024},
+      eprint={2405.19298},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+            <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
